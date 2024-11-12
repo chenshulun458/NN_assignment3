@@ -158,7 +158,7 @@ def neural_network_experiment_multiple(X, y, selected_features=None, n_experimen
     run_experiments(n_experiments, model_func, X, y, selected_features)
 
 # 8. Graph Neural Network
-def gcn_experiment_multiple(graph_data, input_features, num_classes=4, n_experiments=10, epochs=200, lr=0.01, weight_decay=5e-4):
+def gcn_experiment_multiple(graph_data, input_features, num_classes=4, n_experiments=10, epochs=500, lr= 0.01, weight_decay=1e-05):
     """
     GCN model experiment run multiple times with accuracy and F1 score as output.
 
@@ -173,17 +173,23 @@ def gcn_experiment_multiple(graph_data, input_features, num_classes=4, n_experim
     """
     
     class GCN(torch.nn.Module):
-        def __init__(self, input_features, num_classes):
+        def __init__(self, input_features, num_classes=4, hidden_dim=64):
             super(GCN, self).__init__()
-            self.conv1 = GCNConv(input_features, 16)
-            self.conv2 = GCNConv(16, num_classes)
+            self.conv1 = GCNConv(input_features, hidden_dim)
+            self.conv2 = GCNConv(hidden_dim, hidden_dim)
+            self.conv3 = GCNConv(hidden_dim, num_classes)
 
         def forward(self, data):
             x, edge_index = data.x, data.edge_index
             x = self.conv1(x, edge_index)
             x = F.relu(x)
+            x = F.dropout(x, p=0.5, training=self.training)
             x = self.conv2(x, edge_index)
+            x = F.relu(x)
+            x = F.dropout(x, p=0.5, training=self.training)
+            x = self.conv3(x, edge_index)
             return x
+
 
     # Run multiple experiments
     accuracies = []
@@ -226,17 +232,17 @@ def gcn_experiment_multiple(graph_data, input_features, num_classes=4, n_experim
 if __name__ == '__main__':
     X,y = load_data('C:/Users/Admin/Desktop/NN_assignment3/data/abalone.csv')
 
-    # Decision Tree
-    print("Running Decision Tree Experiments")
-    decision_tree_experiment_multiple(X, y, n_experiments=10)
+    # # Decision Tree
+    # print("Running Decision Tree Experiments")
+    # decision_tree_experiment_multiple(X, y, n_experiments=10)
 
-    # Random Forest
-    print("\nRunning Random Forest Experiments")
-    random_forest_experiment_multiple(X, y, n_experiments=10)
+    # # Random Forest
+    # print("\nRunning Random Forest Experiments")
+    # random_forest_experiment_multiple(X, y, n_experiments=10)
 
-    # Simple Neural Network 
-    print("\nRunning Simple Neural Network Experiments")
-    neural_network_experiment_multiple(X, y, n_experiments=10)
+    # # Simple Neural Network 
+    # print("\nRunning Simple Neural Network Experiments")
+    # neural_network_experiment_multiple(X, y, n_experiments=10)
 
     #GNN
     print("\nRunning Graph Neural Network Experiments")
