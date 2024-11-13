@@ -119,7 +119,7 @@ def decision_tree_experiment_multiple(X, y, selected_features=None, n_experiment
     """决策树模型实验运行多次"""
     def model_func(X_train, X_test, y_train, y_test):
         # create a decision tree classifier
-        dt_clf = DecisionTreeClassifier(max_depth=5, min_samples_split=10,criterion='entropy')
+        dt_clf = DecisionTreeClassifier(max_depth=5, min_samples_split=2,criterion='entropy')
         # use the train_and_evaluate_model function to train and evaluate the model
         accuracy, f1 = train_and_evaluate_model(X_train, X_test, y_train, y_test, dt_clf)
         return accuracy, f1
@@ -232,9 +232,9 @@ def gcn_experiment_multiple(graph_data, input_features, num_classes=4, n_experim
 if __name__ == '__main__':
     X,y = load_data('C:/Users/Admin/Desktop/NN_assignment3/data/abalone.csv')
 
-    # # Decision Tree
-    # print("Running Decision Tree Experiments")
-    # decision_tree_experiment_multiple(X, y, n_experiments=10)
+    # Decision Tree
+    print("Running Decision Tree Experiments")
+    decision_tree_experiment_multiple(X, y, n_experiments=10)
 
     # # Random Forest
     # print("\nRunning Random Forest Experiments")
@@ -245,6 +245,6 @@ if __name__ == '__main__':
     # neural_network_experiment_multiple(X, y, n_experiments=10)
 
     #GNN
-    print("\nRunning Graph Neural Network Experiments")
-    graph_data, input_features = create_graph_data(X, y)
-    gcn_experiment_multiple(graph_data, input_features , n_experiments=10)
+    # print("\nRunning Graph Neural Network Experiments")
+    # graph_data, input_features = create_graph_data(X, y)
+    # gcn_experiment_multiple(graph_data, input_features , n_experiments=10)
