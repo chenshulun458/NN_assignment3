@@ -236,15 +236,15 @@ if __name__ == '__main__':
     print("Running Decision Tree Experiments")
     decision_tree_experiment_multiple(X, y, n_experiments=10)
 
-    # # Random Forest
-    # print("\nRunning Random Forest Experiments")
-    # random_forest_experiment_multiple(X, y, n_experiments=10)
+    # Random Forest
+    print("\nRunning Random Forest Experiments")
+    random_forest_experiment_multiple(X, y, n_experiments=10)
 
-    # # Simple Neural Network 
-    # print("\nRunning Simple Neural Network Experiments")
-    # neural_network_experiment_multiple(X, y, n_experiments=10)
+    # Simple Neural Network 
+    print("\nRunning Simple Neural Network Experiments")
+    neural_network_experiment_multiple(X, y, n_experiments=10)
 
     #GNN
-    # print("\nRunning Graph Neural Network Experiments")
-    # graph_data, input_features = create_graph_data(X, y)
-    # gcn_experiment_multiple(graph_data, input_features , n_experiments=10)
+    print("\nRunning Graph Neural Network Experiments")
+    graph_data, input_features = create_graph_data(X, y)
+    gcn_experiment_multiple(graph_data, input_features , n_experiments=10)
