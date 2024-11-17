@@ -4,24 +4,12 @@ This project focuses on analyzing and comparing various machine learning and dee
 
 ---
 
-## Table of Contents
-- [Overview](#overview)
-- [Project Structure](#project-structure)
-- [Datasets](#datasets)
-- [Experiments](#experiments)
-- [Results](#results)
-- [Setup and Installation](#setup-and-installation)
-- [Usage](#usage)
-- [Future Work](#future-work)
-
----
-
 ## Overview
 
 The project implements and evaluates the following models:
 1. **Decision Trees**
 2. **Random Forests**
-3. **Gradient Boosting (XGBoost)**
+3. **Gradient Boosting/XGBoost**
 4. **Neural Networks (NN)**
 5. **Graph Neural Networks (GNN)**
 
