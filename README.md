@@ -52,3 +52,38 @@ NN_ASSIGNMENT3/
 ├── requirements.txt                # requirements
 ├── .gitignore                      # Git ignore file
 └── README.md                       # Project README file
+```
+---
+
+## Our work for specific problem
+
+### Part A
+
+1. Analyse and visualise the given data sets by reporting the distribution of class, distribution of features and any other visualisation you find appropriate. **[II-A Data processing]**
+
+2. Create a Decision Tree for the Abalone multi-class data and report train and test performance for multiple experimental (**can be 5 or more**) runs using different hyperparameters - i.e., **tree depth or any other hyperparameter of your choice**. Take the best Tree and report the Tree Visualisation (show your tree and also translate few selected nodes and leaves into IF and Then rules): **Note: Since Decision Trees give the same results for the same dataset, ensure that in different experimental runs, you create different set of train/test split as done in Week1 and Week 2 Exercise solutions. **[II-B Modeling][III-B result]**
+
+   Let us review the method we used in Week 1 and Week 2 Exercise.
+   
+   ```python
+   def read_data(run_num):
+       data_in = genfromtxt("pima-indians-diabetes.csv", delimiter=",")
+       data_inputx = data_in[:,0:8]  
+       data_inputy = data_in[:,-1]   
+   
+       # train_test_split 
+       x_train, x_test, y_train, y_test = train_test_split(
+           data_inputx, data_inputy, test_size=0.40, random_state=run_num
+       )
+   
+       return x_train, x_test, y_train, y_test
+    
+3. Do an investigation about improving performance further by either pre-pruning or post-pruning the tree: https://scikit-learn.org/stable/auto_examples/tree/plot_cost_complexity_pruning.html. **[II-B Modeling][III-B result]**
+4. Apply Random Forests and show performance (eg. accuracy score) as your number of trees in the ensembles increases. **[II-C Random Forest Modeling][III-C result]**
+5. Further, compare your results with XGBoost and Gradient Boosting and provide a discussion. **[II-D Boosting Comparison][III-D Discussion]**
+6. Compare results with **Adam/SGD (Simple Neural Networks)** and discuss them. You can use default hyper-parameters from the sklearn library - there is no need for extensive hyperparameter search. **[II-E Neural Network Comparison][III-E Discussion]**
+7. Using Adam, compare L2 regularisation (weight decay) with dropouts. Show results for 3 different combinations **(can be more)** of hyperparameters (dropout rate with weight decay hyper-parameter (λ) ).**[II-F Regularization Comparison][III-F result]**
+
+### Part B
+
+1. Provide data visualisation and then apply two of the best models from the above steps to the following dataset. You can report the results with the most appropriate metrics, i.e., F1, ROC-AUC, etc.**[IV-A Data Visualisation][IV-B Model Application]**
