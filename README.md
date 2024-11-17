@@ -33,22 +33,22 @@ NN_ASSIGNMENT3/
 │   ├── contraceptive_method_choice.csv # Healthcare dataset
 │   └── data_prepare_cmc.py         # Script for preparing the healthcare dataset
 │
-├── notebooks/                      # Jupyter notebooks for model training and analysis
+├── notebooks/                      # Jupyter notebooks for experiments(result parts)
 │   ├── data_analysis.ipynb         # Exploratory data analysis (EDA)
-│   ├── graph_neural_network.ipynb  # Implementation and evaluation of GNNs
+│   ├── graph_neural_network.ipynb  # Exploratory research on GNN
 │   ├── RQ2_decision_tree.ipynb     # Decision tree experiments
 │   ├── RQ3_decision_tree.ipynb     # Hyperparameter tuning for decision trees
 │   ├── RQ4_random_forest.ipynb     # Random forest experiments
 │   ├── RQ5_boost.ipynb             # Gradient Boosting (XGBoost) experiments
 │   ├── RQ6_adam_sgd.ipynb          # Comparison of Adam vs. SGD optimizers
 │   ├── RQ7_adam_hyper.ipynb        # Adam optimizer hyperparameter tuning
-│   └── RQ8_transferability.ipynb   # Testing cross-domain transferability
+│   └── RQ8_transferability.ipynb   # Testing cross-domain transferability(Part B)
 │
 ├── src/                            # Source code for custom models and utilities
 │   ├── model_gnn.py                # Graph Neural Network implementation
-│   ├── model_parta.py              # Code for abalone dataset models
-│   ├── model_partb.py              # Code for healthcare dataset models
-│   └── output_graph/               # Directory for saving visualizations and plots
+│   ├── model_parta.py              # Code for abalone dataset models (Part A)
+│   └── model_partb.py              # Code for healthcare dataset models (Part B)
 │
+├── requirements.txt                # requirements
 ├── .gitignore                      # Git ignore file
 └── README.md                       # Project README file
